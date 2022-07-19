@@ -14,26 +14,49 @@
         <h1>Reading List</h1>
         <div id="book-container">
             <div class="book-cell" id="0">
-                <div class="title">Book1</div>
-                <div class="pages">54</div>
-                <button class="read"><i class="fa-solid fa-check"></i></button>
-                <button class="remove-book"><i class="fa-solid fa-xmark"></i></button>
+                <div class="title">Book Name</div>
+                <div class="author">Author</div>
+                <div class="pages">Pages</div>
+                <button class="read">Read</button>
+                <button class="remove-book">Remove 
+                    <i class="fa-solid fa-xmark"></i></button>
             </div>
-            <div class="book-cell" id="1">
-                <div class="title">Book2</div>
-                <div class="pages">154</div>
-                <button class="read"><i class="fa-solid fa-check"></i></button>
-                <button class="remove-book"><i class="fa-solid fa-xmark"></i></button>
+            <div class="book-cell" id="0">
+                <div class="title">Book Name</div>
+                <div class="author">Author</div>
+                <div class="pages">Pages</div>
+                <button class="read">Read</button>
+                <button class="remove-book">Remove 
+                    <i class="fa-solid fa-xmark"></i></button>
             </div>
-            <div class="book-cell" id="3">
-                <div class="title">Book2</div>
-                <div class="pages">154</div>
-                <button class="read"><i class="fa-solid fa-check"></i></button>
-                <button class="remove-book"><i class="fa-solid fa-xmark"></i></button>
+            <div class="book-cell" id="0">
+                <div class="title">Book Name</div>
+                <div class="author">Author</div>
+                <div class="pages">Pages</div>
+                <button class="read">Read</button>
+                <button class="remove-book">Remove 
+                    <i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="book-cell" id="0">
+                <div class="title">Book Name</div>
+                <div class="author">Author</div>
+                <div class="pages">Pages</div>
+                <button class="read">Read</button>
+                <button class="remove-book">Remove 
+                    <i class="fa-solid fa-xmark"></i></button>
             </div>
         </div>
         <button id="new-book-button">+ New Book</button>
-        <form action="#" ></form>
+        <form action="#" id="new-book-form">
+            <input type="text" id="book-title" name="book-title" placeholder="Title" required>
+            <input type="text" id="book-author" name="book-author" placeholder="Author" required>
+            <input type="number" id="book-pages" name="book-pages" placeholder="Pages" required>
+            <div id="book-read">
+                <label for="book-read-status">Have you read the book?</label>
+                <input type="checkbox" id="book-read-status" name="read-status">
+            </div>
+            <button class="add-book" form="new-book-form">Add Book</button>
+        </form>
     </div>
     <script src="script.js"></script>
 </body>

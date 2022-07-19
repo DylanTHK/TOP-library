@@ -2,7 +2,8 @@
 Library storage project
 
 Purpose
-- to create a list to track read status of books
+- to create an app to track read books
+- short statistics on books read (books, pages)
 
 Learning
 - Object constructors

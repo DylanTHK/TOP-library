@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Roboto+Condensed&display=swap');
 
 :root {
-    --primaryBackgroundColour: #ecfdf5;
-    --secondaryBackgroundColour: #166534;
+    /* slate colour scheme */
+    --primaryBackgroundColour: #f8fafc;
+    --secondaryBackgroundColour: #1e293b;
     --primaryTextColour: #18181b;
     --secondaryTextColour: #f0f9ff;
     font-size: calc(0.625rem + 0.4vw);
@@ -21,7 +22,7 @@ body {
     grid-template-rows: repeat(3, auto);
     /* align-content: center; */
     gap: 1rem;
-    width: 80vw;
+    width: 100vw;
 }
 
 /* title */
@@ -38,7 +39,7 @@ h1 {
     width: 10rem;
     color: var(--secondaryTextColour);
     background-color: #22c55e;
-    border-radius: 5px;
+    border-radius: .2rem;
     border: none;
     justify-self: center;
 
@@ -49,10 +50,9 @@ h1 {
     grid-row: 3/4;
     background-color:pink;
     display: grid;
-    /* width: 80vw; */
-    /* grid-template-columns: repeat(2, 200px); */
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 1rem;
+    padding: 0 10rem;
 }
 
 /* inside container (cell) */
@@ -62,19 +62,49 @@ h1 {
     grid-template-rows: repeat(4, auto);
     gap: calc(var(--gapStandard));
     color: var(--secondaryTextColour);
-    font-size: calc(var(--gapStandard)*2);
-    padding: calc(var(--gapStandard)/4) var(--gapStandard);
+    font-size: 1.5rem;
+    padding: calc(var(--gapStandard)) calc(var(--gapStandard)*2);
     border-radius: .5rem;
 }
 
-.remove-book {
+.read, .remove-book {
     color: var(--secondaryTextColour);
-    background: none;
     border: none;
-    font-size: .5em;
+    border-radius: .3rem;
+    font-size: 1em;
 }
 
+.read {
+    background: #22c55e;
+}
 
+.not-read {
+    background: #c54522;
+}
 
+.remove-book {
+    background: #94a3b8;
+}
 
+.fa-solid {
+    vertical-align: middle;
+    padding-left: .5rem;
+}
 
+.read:hover, .remove-book:hover, #new-book-button:hover{
+    transform: scale(1.1) translateY(2px);
+}
+
+#new-book-form {
+    display: grid;
+    grid-template-rows: repeat(5, auto);
+    width: 300px;
+    padding: 2rem;
+    position: absolute;
+    left: calc(50vw - (300px/2));
+    top: 200px;
+    background: pink;
+    gap: 2rem;
+    border-radius: .5rem;
+    justify-content: center;
+}
