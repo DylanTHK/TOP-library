@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Roboto+Condensed&display=swap');
+
+:root {
+    --primaryBackgroundColour: #ecfdf5;
+    --secondaryBackgroundColour: #166534;
+    --primaryTextColour: #18181b;
+    --secondaryTextColour: #f0f9ff;
+    font-size: calc(0.625rem + 0.4vw);
+    --gapStandard: 1rem;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#main-container {
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    /* align-content: center; */
+    gap: 1rem;
+    width: 80vw;
+}
+
+/* title */
+h1 {
+    grid-row: 1/2;
+    margin-bottom: 0;
+    justify-self: center;
+}
+
+/* button */
+#new-book-button {
+    grid-row: 2/3;
+    height: calc(var(--gapStandard)*2);
+    width: 10rem;
+    color: var(--secondaryTextColour);
+    background-color: #22c55e;
+    border-radius: 5px;
+    border: none;
+    justify-self: center;
+
+}
+
+/* container */
+#book-container {
+    grid-row: 3/4;
+    background-color:pink;
+    display: grid;
+    /* width: 80vw; */
+    /* grid-template-columns: repeat(2, 200px); */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+/* inside container (cell) */
+.book-cell {
+    background: var(--secondaryBackgroundColour);
+    display: grid;
+    grid-template-rows: repeat(4, auto);
+    gap: calc(var(--gapStandard));
+    color: var(--secondaryTextColour);
+    font-size: calc(var(--gapStandard)*2);
+    padding: calc(var(--gapStandard)/4) var(--gapStandard);
+    border-radius: .5rem;
+}
+
+.remove-book {
+    color: var(--secondaryTextColour);
+    background: none;
+    border: none;
+    font-size: .5em;
+}
+
+
+
+
+
