@@ -42,7 +42,6 @@ h1 {
     border-radius: .2rem;
     border: none;
     justify-self: center;
-
 }
 
 /* container */
@@ -91,15 +90,19 @@ h1 {
     padding-left: .5rem;
 }
 
-.read:hover, .remove-book:hover, #new-book-button:hover{
+button:hover{
     transform: scale(1.1) translateY(2px);
 }
 
+button:active {
+    transform: scale(1);
+}
+
 #new-book-form {
-    display: grid;
+    display: none;
     grid-template-rows: repeat(5, auto);
     width: 300px;
-    padding: 2rem;
+    padding: 2rem 0;
     position: absolute;
     left: calc(50vw - (300px/2));
     top: 200px;
