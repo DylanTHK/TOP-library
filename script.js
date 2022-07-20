@@ -2,7 +2,24 @@
 // ["Moby Dick", "Author", 310, true], 
 // ["Peter Pan", "Author", 140, false]];
 
-let myLibrary = [];
+newBook = new Book("White Fang", "Mr.X", 120, true);
+
+const myLibrary = [{
+    title: "White Fang",
+    author: "Mr.A",
+    pages: 200,
+    read: true
+}, {
+    title: "Moby Dick",
+    author: "Mr.B",
+    pages: 300,
+    read: false
+}, {
+    title: "Peter Pan",
+    author: "Mr.C",
+    pages: 400,
+    read: false
+}];
 
 const newBookButton = document.querySelector("#new-book-button");
 const newBookForm = document.querySelector("#new-book-form");
@@ -29,7 +46,7 @@ function Book(title, author, pages, read) {
     this.read = read
 }
 
-// To add book objects to myLibrary
+// To add book objects to myLibrary array with form input
 function addBookToLibrary() {
     // generating elements for each input field in form
     let title = document.querySelector("#book-title").value;
@@ -43,6 +60,7 @@ function addBookToLibrary() {
     
         // add new object to myLibrary
         myLibrary.push(newBook);
+        displayBooks()
     
         // reset fields
         title.value = "";
@@ -53,8 +71,47 @@ function addBookToLibrary() {
     } 
 }
 
-// function to loop through myLibrary and display cards
 
+// function to create single book card
+function createBookCard(book) {
+    // create book-cell element,
+    let bookCell = document.createElement("div");
+    bookCell.classList.add("book-cell");
+    // create title element
+    let title = document.createElement("div");
+    title.classList.add("title");
+    title.textContent = book.title;
+    // create author element
+    let author = document.createElement("div");
+    author.classList.add("author");
+    author.textContent = book.author;
+    // create pages element
+    let pages = document.createElement("div");
+    pages.classList.add("pages");
+    pages.textContent = book.pages;
+    // create read button
+    let read = document.createElement("button");
+    read.classList.add("read");
+    read.textContent = "Read"; // EDIT WITH CONDITION Read/Not Read
+    // create remove-book button (with <i class="fa-solid fa-xmark"></i> icon) 
+    let removeBook = document.createElement("button");
+    removeBook.classList.add("remove-book")
+    removeBook.textContent = "Remove ";
+
+    bookCell.append(title, author, pages, read, removeBook);
+
+    library.appendChild(bookCell);
+}
+
+// function to go through myLibrary and call createBookCard function
+function displayBooks() {
+    library.textContent = "";
+    myLibrary.map(book => {
+        createBookCard(book);
+    });
+};
+
+displayBooks(myLibrary);
 
 // function to remove card from array
 
