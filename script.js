@@ -41,6 +41,13 @@ document.body.addEventListener("click", (e) => {
     }
 });
 
+// adding eventlistener to remove button
+document.body.addEventListener("click", (e) => {
+    if(e.target.classList.contains("remove-book")) {
+        e.path[1].remove();
+    }
+});
+
 // constructor to create object Books
 function Book(title, author, pages, read) {
     this.title = title
@@ -104,9 +111,11 @@ function createBookCard(book) {
     let removeBook = document.createElement("button");
     removeBook.classList.add("remove-book")
     removeBook.textContent = "Remove ";
+    let icon = document.createElement("i");
+    icon.classList.add("fa-solid", "fa-xmark");
+    removeBook.appendChild(icon);
 
     bookCell.append(title, author, pages, read, removeBook);
-
     library.appendChild(bookCell);
 }
 
@@ -132,12 +141,6 @@ function toggleReadStatus(button) {
     }
     // if text is Not Read
 }
-
-
-// function to remove card from array
-
-
-
 
 displayBooks(myLibrary);
 

@@ -11,7 +11,10 @@
 </head>
 <body>
     <div id="main-container">
-        <h1>Reading List</h1>
+        <div class="header">
+            <h1>Reading List</h1>
+            <button id="new-book-button">+ New Book</button>
+        </div>
         <div id="book-container">
             <div class="book-cell" id="0">
                 <div class="title">Book Name</div>
@@ -22,7 +25,6 @@
                     <i class="fa-solid fa-xmark"></i></button>
             </div>
         </div>
-        <button id="new-book-button">+ New Book</button>
         <form id="new-book-form">
             <input type="text" id="book-title" name="book-title" placeholder="Title" required>
             <input type="text" id="book-author" name="book-author" placeholder="Author" required>
