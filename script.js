@@ -1,9 +1,3 @@
-// [["White Fang", "Author", 120, true], 
-// ["Moby Dick", "Author", 310, true], 
-// ["Peter Pan", "Author", 140, false]];
-
-newBook = new Book("White Fang", "Mr.X", 120, true);
-
 const myLibrary = [{
     title: "White Fang",
     author: "Mr.A",
@@ -25,6 +19,8 @@ const newBookButton = document.querySelector("#new-book-button");
 const newBookForm = document.querySelector("#new-book-form");
 const addBookButton = document.querySelector(".add-book");
 const library = document.querySelector("#book-container");
+// const readStatusButton = document.getElementsByClassName("read-status");
+
 
 // brings up pop up form when +new book pressed
 newBookButton.addEventListener("click", () => {
@@ -36,6 +32,13 @@ addBookButton.addEventListener("click", (e) => {
     // call function to take inputs and store in function
     e.preventDefault();
     addBookToLibrary();
+});
+
+// adding toggle function to read / not read button
+document.body.addEventListener("click", (e) => {
+    if(e.target.classList.contains("read") | e.target.classList.contains("not-read")){
+        toggleReadStatus(e.target);
+    }
 });
 
 // constructor to create object Books
@@ -71,7 +74,6 @@ function addBookToLibrary() {
     } 
 }
 
-
 // function to create single book card
 function createBookCard(book) {
     // create book-cell element,
@@ -91,8 +93,13 @@ function createBookCard(book) {
     pages.textContent = book.pages;
     // create read button
     let read = document.createElement("button");
-    read.classList.add("read");
-    read.textContent = "Read"; // EDIT WITH CONDITION Read/Not Read
+    if (book.read) {
+        read.classList.add("read");
+        read.textContent = "Read"; // EDIT WITH CONDITION Read/Not Read
+    } else {
+        read.classList.add("not-read");
+        read.textContent = "Not Read";
+    };
     // create remove-book button (with <i class="fa-solid fa-xmark"></i> icon) 
     let removeBook = document.createElement("button");
     removeBook.classList.add("remove-book")
@@ -110,9 +117,30 @@ function displayBooks() {
         createBookCard(book);
     });
 };
+// function to toggle read status in card
+function toggleReadStatus(button) {
+    let text = button.textContent;
+    // if text is read, change to Not Read & change class to not-read
+    if(text == "Read") {
+        button.textContent = "Not Read";
+        button.classList.remove("read");
+        button.classList.add("not-read");
+    }else {
+        button.textContent = "Read";
+        button.classList.remove("not-read");
+        button.classList.add("read");
+    }
+    // if text is Not Read
+}
 
-displayBooks(myLibrary);
 
 // function to remove card from array
 
-// function to toggle read status in card
+
+
+
+displayBooks(myLibrary);
+
+
+
+
