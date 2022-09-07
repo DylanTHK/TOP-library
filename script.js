@@ -1,3 +1,4 @@
+// for testing purposes (remove)
 const myLibrary = [{
     title: "White Fang",
     author: "Mr.A",
@@ -19,28 +20,26 @@ const newBookButton = document.querySelector("#new-book-button");
 const newBookForm = document.querySelector("#new-book-form");
 const addBookButton = document.querySelector(".add-book");
 const library = document.querySelector("#book-container");
-// const readStatusButton = document.getElementsByClassName("read-status");
 
-
-// brings up pop up form when +new book pressed
+// ****************
+// Event Listeners
+// ****************
+// brings up pop up form when "+ New Book" clicked
 newBookButton.addEventListener("click", () => {
     newBookForm.style.display = "grid";
 });
-
 // removes the pop up form after pressing add book
 addBookButton.addEventListener("click", (e) => {
     // call function to take inputs and store in function
     e.preventDefault();
     addBookToLibrary();
 });
-
 // adding toggle function to read / not read button
 document.body.addEventListener("click", (e) => {
     if(e.target.classList.contains("read") | e.target.classList.contains("not-read")){
         toggleReadStatus(e.target);
     }
 });
-
 // adding eventlistener to remove button
 document.body.addEventListener("click", (e) => {
     if(e.target.classList.contains("remove-book")) {
@@ -48,14 +47,41 @@ document.body.addEventListener("click", (e) => {
     }
 });
 
-// constructor to create object Books
-function Book(title, author, pages, read) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.read = read
+
+// *********************
+// Class for books
+// *********************
+// hold book card functions?
+class Book {
+    // constructor to hold the properties of each Class instance
+    constructor(title, author, pages, read) {
+        this.title = title
+        this.author = author
+        this.pages = pages
+        this.read = read
+    }
+    // read / unread toggle button
+    // function to toggle read status in card
+    toggleReadStatus(button) {
+    let text = button.textContent;
+    // if text is read, change to Not Read & change class to not-read
+    if(text == "Read") {
+        button.textContent = "Not Read";
+        button.classList.remove("read");
+        button.classList.add("not-read");
+    }else {
+        button.textContent = "Read";
+        button.classList.remove("not-read");
+        button.classList.add("read");
+    }
+}
+    // remove button
+
 }
 
+// *********************
+// Functions
+// *********************
 // To add book objects to myLibrary array with form input
 function addBookToLibrary() {
     // generating elements for each input field in form
@@ -80,8 +106,7 @@ function addBookToLibrary() {
         newBookForm.style.display = "none";
     } 
 }
-
-// function to create single book card
+// function to create single book card w new HTML elements
 function createBookCard(book) {
     // create book-cell element,
     let bookCell = document.createElement("div");
@@ -102,7 +127,7 @@ function createBookCard(book) {
     let read = document.createElement("button");
     if (book.read) {
         read.classList.add("read");
-        read.textContent = "Read"; // EDIT WITH CONDITION Read/Not Read
+        read.textContent = "Read"; 
     } else {
         read.classList.add("not-read");
         read.textContent = "Not Read";
@@ -114,11 +139,9 @@ function createBookCard(book) {
     let icon = document.createElement("i");
     icon.classList.add("fa-solid", "fa-xmark");
     removeBook.appendChild(icon);
-
     bookCell.append(title, author, pages, read, removeBook);
     library.appendChild(bookCell);
 }
-
 // function to go through myLibrary and call createBookCard function
 function displayBooks() {
     library.textContent = "";
@@ -126,21 +149,7 @@ function displayBooks() {
         createBookCard(book);
     });
 };
-// function to toggle read status in card
-function toggleReadStatus(button) {
-    let text = button.textContent;
-    // if text is read, change to Not Read & change class to not-read
-    if(text == "Read") {
-        button.textContent = "Not Read";
-        button.classList.remove("read");
-        button.classList.add("not-read");
-    }else {
-        button.textContent = "Read";
-        button.classList.remove("not-read");
-        button.classList.add("read");
-    }
-    // if text is Not Read
-}
+
 
 displayBooks(myLibrary);
 

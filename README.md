@@ -15,3 +15,10 @@ Learning
 
 Project inspired by the Odin's Project, by DylanTHK
 https://www.theodinproject.com/lessons/node-path-javascript-library
+
+* git checkout -b libClasses (to create new branch and change to branch)
+* git push origin libClasses (updated changes to branch)
+* git branch (check which branch you are working on)
+* git checkout main (changes back to main branch)
+* git merge libClasses (merges selected branch with current branch)
+* git branch -d libClasses (deletes branch - optional)
